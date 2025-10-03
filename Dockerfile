@@ -6,20 +6,13 @@ ENV DEBIAN_FRONTEND=noninteractive
 # Update and install sudo and SSH server
 RUN apt-get update && \
     apt-get install -y sudo openssh-server && \
-    apt-get clean && \
-    rm -rf /var/lib/apt/lists/* && \
+    apt-get clean && rm -rf /var/lib/apt/lists/* && \
     mkdir /var/run/sshd
 
 # Install essential packages
-# RUN apt-get update && apt-get install -y \
-#     sudo \
-#     openssh-server \
-#     git \
-#     gitk \
-#     curl \
-#     wget \
-#     jq \
-#     && rm -rf /var/lib/apt/lists/*
+RUN apt-get update && apt-get install -y \
+    bash-completion less nano git gitk curl wget jq tree \
+    && apt-get clean && rm -rf /var/lib/apt/lists/*
 
 # Create user with sudo privileges
 RUN groupadd devuser && \
