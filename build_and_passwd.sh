@@ -6,6 +6,8 @@ set -e
 # Variables
 PROJECTS_DIR="$HOME/Projects"
 mkdir -p "$PROJECTS_DIR"
+PLAYWRIGHT_OUTPUT_DIR="$HOME/Tmp/playwright-mcp-output"
+mkdir -p "$PLAYWRIGHT_OUTPUT_DIR"
 
 # Stop and remove existing container
 echo "Stopping and removing existing container..."
@@ -27,6 +29,7 @@ docker run -d \
   --hostname devcont \
   -v devcont-home:/home/devuser \
   -v $PROJECTS_DIR:/home/devuser/projects \
+  -v $PLAYWRIGHT_OUTPUT_DIR:/tmp/playwright-mcp-output \
   -p 2222:22 \
   dev-container
 
