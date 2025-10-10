@@ -7,7 +7,7 @@ set -e
 PLAYWRIGHT_OUTPUT_DIR="$HOME/Tmp/playwright-mcp-output"
 mkdir -p "$PLAYWRIGHT_OUTPUT_DIR"
 
-docker run -d \
+docker run -d --rm \
   --name playwright-mcp \
   -p 0.0.0.0:8931:8931 \
   -v $PLAYWRIGHT_OUTPUT_DIR:/tmp/playwright-mcp-output \
