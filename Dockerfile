@@ -11,7 +11,7 @@ RUN apt-get update && \
 
 # Install essential packages
 RUN apt-get update && apt-get install -y \
-    bash-completion less nano git gitk curl wget jq tree \
+    bash-completion less nano git gitk curl wget jq tree file \
     && apt-get clean && rm -rf /var/lib/apt/lists/*
 
 # Create user with sudo privileges
